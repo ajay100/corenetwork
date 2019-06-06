@@ -1,0 +1,24 @@
+{
+    "variable": [
+        {
+            "subnet_id": {
+                "type": "map",
+                "description": "subnets",
+                "default": {
+                    "dev-subnet": [
+                        "resourceGroups/000-MS-POC-RG-EASTUS/providers/Microsoft.Network/virtualNetworks/vnetA/subnets/subnet1", 
+                        "resourceGroups/000-MS-POC-RG-EASTUS/providers/Microsoft.Network/virtualNetworks/vnetA/subnets/subnet2",
+                        "resourceGroups/000-MS-POC-RG-EASTUS/providers/Microsoft.Network/virtualNetworks/vnetB/subnets/subnet1",
+                        "resourceGroups/000-MS-POC-RG-EASTUS/providers/Microsoft.Network/virtualNetworks/vnetB/subnets/subnet2"
+                    ]
+                }
+            }
+        }
+    ],
+    "output": [
+        {
+            "subnet_id":
+              { "value": "${var.subnet_id [format(\"%s-%s\", var.env, var.subnet)]}" }
+        }
+    ]
+}
